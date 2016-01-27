@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 import uuid from 'node-uuid';
 import employeeData from './employee-data';
 
@@ -53,7 +54,7 @@ export function editEmployee(id, data) {
 function save(employees) {
     return new Promise((res, rej) => {
         fs.writeFile(
-            './src/db/employee-data.json',
+            path.join(__dirname, 'employee-data.json'),
             JSON.stringify(employees, null, 4),
             'utf-8',
             err => err ? rej(err) : res()
