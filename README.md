@@ -2,11 +2,33 @@
 
 Using the API provided in this repository, create a client-side application that can be used to add/edit/remove employees from the faux employee database.
 
+## TODO:
+- Create a visual mockup and add screen-shot(s)
+
 ## Rules/Guidelines
 - *Cannot* use frameworks (Angular/Ember/Backbone/etc)
 - *Cannot* use libraries (lodash/jQuery/React/etc)
 - *Cannot* use CSS Preprocessor (SASS/Less/Stylus/PostCSS/etc)
-- *Can* use any DOM APIs/CSS features that are supported in the latest stable versions of Chrome *and* Firefox
+- *Can* use any DOM APIs/CSS/JavaScript features that are supported in the latest stable versions of Chrome *and* Firefox
+- Your finished application should visually look as close as possible to the provided mockup
+- JavaScript must be strict-mode compliant (`'use-strict';`)
+
+
+## What We're Looking For
+The following are our primary areas of focus when reviewing your work:
+
+- Modularity/Extensibility
+- Readability
+- Common Front End Best Practices
+
+These should not be surprising, as they should also be your focus building any app :).
+
+## Optional Tools
+The following tools are entirely optional (and not included or configured in the repository), but you are welcome to use any that you find necessary.
+
+- ES2015/2016 Transpiler (Babel)
+- Module Bundler (Browserify/Webpack/Require/etc)
+- Build System/Task Runner (Gulp/Grunt/npm "run" scripts)
 
 ## Prerequisites
 - node.js version >= `4.0.x`
