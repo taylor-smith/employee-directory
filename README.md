@@ -2,14 +2,15 @@
 
 Using the API provided in this repository, create a client-side application that can be used to add/edit/remove employees from the faux employee database.
 
-## TODO:
-- Create a visual mockup and add screen-shot(s)
+![screenshot.png](screenshot.png)
 
 ## Rules/Guidelines
 - *Cannot* use frameworks (Angular/Ember/Backbone/etc)
 - *Cannot* use libraries (lodash/jQuery/React/etc)
 - *Cannot* use CSS Preprocessor (SASS/Less/Stylus/PostCSS/etc)
 - *Can* use any DOM APIs/CSS/JavaScript features that are supported in the latest stable versions of Chrome *and* Firefox
+- The UI of your finished application should match the included screen-shot
+- *Can* use the [Font-Awesome](https://fortawesome.github.io/Font-Awesome/) icon font to match icons from the provided mockup
 - Your finished application should visually look as close as possible to the provided mockup
 - JavaScript must be strict-mode compliant (`'use-strict';`)
 
@@ -20,6 +21,7 @@ The following are our primary areas of focus when reviewing your work:
 - Modularity/Extensibility
 - Readability
 - Common Front End Best Practices
+- Attention to detail
 
 These should not be surprising, as they should also be your focus building any app :).
 
