@@ -3,8 +3,7 @@ import * as db from './db';
 
 const model = {
     employee: {
-        firstName: joi.string(),
-        lastName: joi.string(),
+        fullName: joi.string(),
         DOB: joi.string(),
         role: joi.string()
     },
