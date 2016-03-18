@@ -4,7 +4,12 @@ import routes from './routes';
 import inert from 'inert';
 
 const server = new Server();
-server.connection({ port: 3000 });
+server.connection({
+    port: 3000,
+    routes: {
+        cors: true
+    }
+});
 
 server.register(inert).then(() => {
     server.route(routes);
