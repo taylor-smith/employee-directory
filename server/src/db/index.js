@@ -18,11 +18,9 @@ export function getEmployees() {
 
 export function addEmployee(employee = {}) {
     return new Promise((res, rej) => {
-        employees.push({
-            ...employee,
-            id: uuid.v4()
-        });
-        res(save(employees));
+        employee.id = uuid.v4();
+        employees.push(employee);
+        res(save(employees).then(() => employee));
     });
 }
 
@@ -42,12 +40,13 @@ export function editEmployee(id, data) {
             return false;
         });
 
-        employees.push({
+        employee = {
             ...employee,
             ...data
-        });
-        
-        res(save(employees));
+        };
+        employees.push(employee);
+
+        res(save(employees).then(() => employee));
     });
 }
 

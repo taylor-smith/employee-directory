@@ -47,6 +47,20 @@ const editEmployee = {
     }
 };
 
+const replaceEmployee = {
+    method: 'PUT',
+    path: '/employees/{id}',
+    handler: ({params, payload}, reply) => {
+        reply(db.editEmployee(params.id, payload)).code(202);
+    },
+    config: {
+        validate: {
+            params: model.id,
+            payload: model.employee
+        }
+    }
+};
+
 const removeEmployee = {
     method: 'DELETE',
     path: '/employees/{id}',
@@ -83,6 +97,7 @@ export default [
     addEmployee,
     editEmployee,
     removeEmployee,
+    replaceEmployee,
     clientDir,
     index
 ];
