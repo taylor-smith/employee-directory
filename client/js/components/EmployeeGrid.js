@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { fetchEmployees } from '../actions';
 
-function EmployeeGrid({ state }) {
-  return(
-    <div>:)</div>
-  )
+class EmployeeGrid extends Component {
+  constructor(props) {
+    super();
+  }
+
+  componentWillMount() {
+    fetchEmployees();
+  }
+
+  render() {
+    const { state, createEmployee, updateEmployee, deleteEmployee } = this.props;
+    return (
+      <div>:)</div>
+    )
+  }
 }
-
 export default EmployeeGrid;
