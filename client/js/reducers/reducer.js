@@ -1,7 +1,5 @@
-import {List, Map} from 'immutable';
+import {Map} from 'immutable';
 import fetch from 'isomorphic-fetch';
-
-// const initialState = fetch(`http://localhost:3000/employees`);
 
 function setState(state, newState) {
   console.log(newState)

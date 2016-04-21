@@ -1,11 +1,9 @@
 import fetch from 'isomorphic-fetch';
 
-import {
-  CREATE_EMPLOYEE,
-  UPDATE_EMPLOYEE,
-  DELETE_EMPLOYEE,
-  RECEIVE_EMPLOYEES,
-} from './actionTypes'
+export const CREATE_EMPLOYEE = 'CREATE_EMPLOYEE';
+export const UPDATE_EMPLOYEE = 'UPDATE_EMPLOYEE';
+export const DELETE_EMPLOYEE = 'DELETE_EMPLOYEE';
+export const RECEIVE_EMPLOYEES = 'RECEIVE_EMPLOYEES';
 
 export function createEmployee() {
   return {
@@ -28,12 +26,12 @@ export function fetchEmployees() {
     fetch(`http://localhost:3000/employees`)
       .then(response => response.json())
       .then(json => dispatch(receiveEmployees(json)))
-  }
+  };
 }
 
 function receiveEmployees(json) {
   return {
     type: RECEIVE_EMPLOYEES,
     state: json
-  }
+  };
 }
