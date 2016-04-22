@@ -11,7 +11,10 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel'
+      loaders: [
+        'react-hot',
+        'babel'
+      ]
     }]
   },
   resolve: {
@@ -20,8 +23,8 @@ module.exports = {
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
-    filename: 'bundle.js',
-    sourceMapFileName: 'sourcemaps.map'
+    filename: 'bundle.js'
+    // sourceMapFileName: 'sourcemaps.map'
   },
   devServer: {
     contentBase: './dist',

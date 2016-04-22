@@ -1,8 +1,6 @@
 import {Map} from 'immutable';
-import fetch from 'isomorphic-fetch';
 
 function setState(state, newState) {
-  console.log(newState)
   state.merge(newState);
 }
 

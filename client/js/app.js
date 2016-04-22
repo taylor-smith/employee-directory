@@ -1,12 +1,13 @@
 import React from 'react';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
 import { render } from 'react-dom';
 import reducer from './reducers/reducer'
 import EmployeeList from './containers/EmployeeList'
 
-const store = (window.devToolsExtension ? window.devToolsExtension()(createStore) : createStore)(reducer)
-
+// const store = (window.devToolsExtension ? window.devToolsExtension()(createStore) : createStore)(reducer, applyMiddleware(thunkMiddleware))
+const store = createStore(reducer, applyMiddleware(thunkMiddleware));
 const renderApp = () => {
   render (
     <Provider store={store}>

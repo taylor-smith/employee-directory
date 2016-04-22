@@ -3,11 +3,12 @@ import { fetchEmployees } from '../actions';
 
 class EmployeeGrid extends Component {
   constructor(props) {
-    super();
+    super(props);
   }
 
   componentWillMount() {
-    fetchEmployees();
+    const { dispatch } = this.props;
+    dispatch(fetchEmployees());
   }
 
   render() {
