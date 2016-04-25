@@ -23,7 +23,6 @@ export function deleteEmployee() {
 
 export function fetchEmployees() {
   return dispatch => {
-    debugger;
     return fetch(`http://localhost:3000/employees`)
       .then(response => response.json())
       .then(json => dispatch(receiveEmployees(json)))
