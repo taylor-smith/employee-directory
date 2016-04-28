@@ -6,6 +6,8 @@ import { render } from 'react-dom';
 import reducer from './reducers/reducer'
 import EmployeeList from './containers/EmployeeList'
 
+require('../css/main.css');
+
 // const store = (window.devToolsExtension ? window.devToolsExtension()(createStore) : createStore)(reducer, applyMiddleware(thunkMiddleware))
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
 const renderApp = () => {

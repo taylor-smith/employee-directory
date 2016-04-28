@@ -1,8 +1,8 @@
-
+import { List, Map } from 'immutable';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import EmployeeGrid from '../components/EmployeeGrid';
-import { fetchEmployees, createEmployee, updateEmployee, deleteEmployee } from './../actions';
+import { fetchEmployees, addEmployeeInput, createEmployee, updateEmployee, deleteEmployee, removeNewEmployeeInput } from './../actions';
 
 class EmployeeList extends Component {
 
@@ -12,21 +12,22 @@ class EmployeeList extends Component {
   }
 
   render() {
-    const { state, createEmployee, updateEmployee, deleteEmployee } = this.props;
+    const { state, addEmployeeInput, createEmployee, updateEmployee, deleteEmployee, removeNewEmployeeInput } = this.props;
     return  (
       <div>
-        <EmployeeGrid state={state}
-                      createEmployee={createEmployee}
-                      updateEmployee={updateEmployee}
-                      deleteEmployee={deleteEmployee}
-        />
+      {state ? 
+          <EmployeeGrid state={state}
+                        addEmployeeInput={addEmployeeInput}
+                        createEmployee={createEmployee}
+                        updateEmployee={updateEmployee}
+                        deleteEmployee={deleteEmployee}
+                        removeNewEmployeeInput={removeNewEmployeeInput}
+          />
+      : null}
       </div>
     )
   }
 }
-
-
-
 
 function mapStateToProps(state) {
   return { state: state };
@@ -34,16 +35,13 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    createEmployee: () => dispatch(createEmployee()),
+    addEmployeeInput: () => dispatch(addEmployeeInput()),
+    createEmployee: state => dispatch(createEmployee(state)),
     updateEmployee: () => dispatch(updateEmployee()),
     deleteEmployee: () => dispatch(deleteEmployee()),
+    removeNewEmployeeInput: () => dispatch(removeNewEmployeeInput()),
     dispatch: dispatch
   };
 }
-
-// const EmployeeList = connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(EmployeeList);
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmployeeList);

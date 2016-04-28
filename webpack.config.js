@@ -15,6 +15,9 @@ module.exports = {
         'react-hot',
         'babel'
       ]
+    }, {
+      test: /\.css$/,
+      loader: 'style-loader!css-loader'
     }]
   },
   resolve: {

@@ -8,10 +8,11 @@ class Employee extends Component {
   render() {
     const { name, dob, role } = this.props;
     return (
-      <div>
-        <h1>{name}</h1>
-        <h1>{dob}</h1>
-        <h1>{role}</h1>
+      <div className="row">
+        <h4 className="employeeData">{name}</h4>
+        <h4 className="employeeData">{dob}</h4>
+        <h4 className="employeeData">{role}</h4>
+        <span className="employeeData"><div className="icon"><i className="fa fa-trash delete-employee"></i></div><div className="icon edit-employee"><i className="fa fa-pencil"></i></div></span>
       </div>
     )
   }
