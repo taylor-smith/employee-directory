@@ -38,7 +38,7 @@ function mapDispatchToProps(dispatch) {
     addEmployeeInput: () => dispatch(addEmployeeInput()),
     createEmployee: state => dispatch(createEmployee(state)),
     updateEmployee: () => dispatch(updateEmployee()),
-    deleteEmployee: () => dispatch(deleteEmployee()),
+    deleteEmployee: id => dispatch(deleteEmployee(id)),
     removeNewEmployeeInput: () => dispatch(removeNewEmployeeInput()),
     dispatch: dispatch
   };

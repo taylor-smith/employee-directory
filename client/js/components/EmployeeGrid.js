@@ -31,6 +31,7 @@ class EmployeeGrid extends Component {
             state.get('employees').map((employee, index) =>
               <Employee
                 key={index}
+                id={employee.get('id')}
                 name={employee.get('fullName')}
                 dob={employee.get('DOB')}
                 role={employee.get('role')}

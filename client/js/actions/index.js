@@ -24,10 +24,16 @@ export function updateEmployee() {
     type: UPDATE_EMPLOYEE
   };
 }
-export function deleteEmployee() {
-  return {
-    type: DELETE_EMPLOYEE
-  };
+export function deleteEmployee(id) {
+  return dispatch => {
+    return fetch(`http://localhost:3000/employees/${id}`, {
+      method: 'DELETE',
+    })
+      // .then((response) => response.json())
+      .then(() => dispatch(removeEmployee(id)))
+      // .then(id => dispatch(removeEmployee(id)))
+  }
+
 }
 export function createEmployee(state) {
   return dispatch => {
@@ -64,4 +70,12 @@ function addEmployee(json) {
     type: ADD_EMPLOYEE,
     employee: json
   }
+}
+
+function removeEmployee(id) {
+  console.log('removing: ' + id);
+  return {
+    type: DELETE_EMPLOYEE,
+    id: id
+  };
 }

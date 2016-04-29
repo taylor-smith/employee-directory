@@ -23,5 +23,8 @@ export default function(state=initialState, action) {
     case 'ADD_EMPLOYEE':
       const employee = fromJS(action.employee);
       return state.updateIn(['employees'], arry => arry.push(employee))
+    case 'DELETE_EMPLOYEE':
+      const index = state.get('employees').findIndex((value, index, list) => value.get('id') === action.id);
+      return state.updateIn(['employees'], arry => arry.delete(index));
   }
 }
