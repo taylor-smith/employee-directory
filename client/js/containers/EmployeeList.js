@@ -2,7 +2,7 @@ import { List, Map } from 'immutable';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import EmployeeGrid from '../components/EmployeeGrid';
-import { fetchEmployees, addEmployeeInput, createEmployee, updateEmployee, deleteEmployee, removeNewEmployeeInput } from './../actions';
+import { fetchEmployees, addEmployeeInput, createEmployee, updateEmployee, deleteEmployee, removeNewEmployeeInput, saveEmployee } from './../actions';
 
 class EmployeeList extends Component {
 
@@ -12,7 +12,7 @@ class EmployeeList extends Component {
   }
 
   render() {
-    const { state, addEmployeeInput, createEmployee, updateEmployee, deleteEmployee, removeNewEmployeeInput } = this.props;
+    const { state, addEmployeeInput, createEmployee, updateEmployee, deleteEmployee, removeNewEmployeeInput, saveEmployee } = this.props;
     return  (
       <div>
       {state ? 
@@ -21,6 +21,7 @@ class EmployeeList extends Component {
                         createEmployee={createEmployee}
                         updateEmployee={updateEmployee}
                         deleteEmployee={deleteEmployee}
+                        saveEmployee={saveEmployee}
                         removeNewEmployeeInput={removeNewEmployeeInput}
           />
       : null}
@@ -39,6 +40,7 @@ function mapDispatchToProps(dispatch) {
     createEmployee: state => dispatch(createEmployee(state)),
     updateEmployee: () => dispatch(updateEmployee()),
     deleteEmployee: id => dispatch(deleteEmployee(id)),
+    saveEmployee: (employee, id) => dispatch(saveEmployee(employee, id)),
     removeNewEmployeeInput: () => dispatch(removeNewEmployeeInput()),
     dispatch: dispatch
   };

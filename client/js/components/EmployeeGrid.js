@@ -8,7 +8,7 @@ class EmployeeGrid extends Component {
   }
 
   render() {
-    const { state, addEmployeeInput, createEmployee, updateEmployee, deleteEmployee, removeNewEmployeeInput } = this.props;
+    const { state, addEmployeeInput, createEmployee, updateEmployee, saveEmployee, deleteEmployee, removeNewEmployeeInput } = this.props;
     return (
       <div>
         <div id="header">
@@ -32,10 +32,12 @@ class EmployeeGrid extends Component {
               <Employee
                 key={index}
                 id={employee.get('id')}
+                // employee={employee}
                 name={employee.get('fullName')}
                 dob={employee.get('DOB')}
                 role={employee.get('role')}
                 updateEmployee={updateEmployee}
+                saveEmployee={saveEmployee}
                 deleteEmployee={deleteEmployee}
               />
             )

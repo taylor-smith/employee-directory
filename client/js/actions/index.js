@@ -24,6 +24,25 @@ export function updateEmployee() {
     type: UPDATE_EMPLOYEE
   };
 }
+export function saveEmployee(employee, id) {
+  console.log(employee);
+  return dispatch => {
+    return fetch(`http://localhost:3000/employees/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(employee)
+    })
+    .then(() => dispatch(updateEmployee))
+  }
+
+  return {
+    type: SAVE_EMPLOYEE,
+    employee: employee
+  }
+}
 export function deleteEmployee(id) {
   return dispatch => {
     return fetch(`http://localhost:3000/employees/${id}`, {

@@ -12,6 +12,10 @@ function setEmployeeState(state, employees) {
   return newState;
 }
 
+function getEmployeeIndex(state, action) {
+  return state.get('employees').findIndex((value, index, list) => value.get('id') === action.id);
+}
+
 export default function(state=initialState, action) {
   switch (action.type) {
     case 'RECEIVE_EMPLOYEES':
@@ -21,10 +25,14 @@ export default function(state=initialState, action) {
     case 'REMOVE_EMPLOYEE_INPUT':
       return state.set('addingEmployee', false);
     case 'ADD_EMPLOYEE':
-      const employee = fromJS(action.employee);
-      return state.updateIn(['employees'], arry => arry.push(employee))
+      const newEmployee = fromJS(action.employee);
+      return state.updateIn(['employees'], arry => arry.push(newEmployee))
     case 'DELETE_EMPLOYEE':
-      const index = state.get('employees').findIndex((value, index, list) => value.get('id') === action.id);
-      return state.updateIn(['employees'], arry => arry.delete(index));
+      const deleteIndex = getEmployeeIndex(state, action);
+      return state.updateIn(['employees'], arry => arry.delete(deleteIndex));
+    case 'UPDATE_EMPLOYEE':
+      const saveIndex = getEmployeeIndex(state, action);
+      const updatedEmployee = fromJS(action.employee);
+      return state.updateIn(['employees'], arry => arry.update(saveIndex, () => {return updatedEmployee} ));
   }
 }
